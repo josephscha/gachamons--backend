@@ -41,9 +41,9 @@ puts "Epic monsters : #{epic_mons.count}" #38 epic monsters ID: 106-143
 puts "Legendary monsters : #{legendary_mons.count}" #8 legendaries ID: 144 - 151
 puts "Total monsters : #{Monster.count}"
 
-Item.create(name: "Tamago", price: 1000, description: "Summon a random monster!", img_url: "./assets/mario-gif/tamago_egg")
-Item.create(name: "Lady Egga", price: 50000, description: "Summon a random Epic and higher monster!", img_url: "./assets/mario-gif/lady_egga_egg")
-Item.create(name: "Pikapika Egg", price: 100000, description: "Summon a LEGENDARY Monster!", img_url: "./assets/mario-gif/pikapia_egg")
+Item.create(name: "Tamago", price: 1000, description: "Summon a random monster!", img_url: "./assets/mario-gif/tamago_egg.png")
+Item.create(name: "Lady Egga", price: 50000, description: "Summon a random Epic and higher monster!", img_url: "./assets/mario-gif/lady_egga_egg.png")
+Item.create(name: "Pikapika Egg", price: 100000, description: "Summon a LEGENDARY Monster!", img_url: "./assets/mario-gif/pikapika_egg.png")
 
 Inventory.create(item: Item.first, user: User.first)
 Summon.create(monster: Monster.first, user: User.first)
