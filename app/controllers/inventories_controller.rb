@@ -19,6 +19,13 @@ class InventoriesController < ApplicationController
         render json: inventory, except: [:created_at, :updated_at]
     end
 
+    def create
+        inventory = Inventory.create(inventory_params)
+        render json: inventory, except: [:created_at, :updated_at]
+    end
+
+
+
     private 
 
     def inventory_params
