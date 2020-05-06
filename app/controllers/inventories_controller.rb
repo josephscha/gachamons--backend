@@ -6,6 +6,22 @@ class InventoriesController < ApplicationController
 
     def show 
         inventory = Inventory.find(params[:id])
-        render json: inventory
+        render json: inventory, except: [:created_at, :updated_at]
+    end
+
+    def edit 
+        
+    end
+
+    def update
+        inventory = Inventory.find(params[:id])
+        inventory.update(inventory_params)
+        render json: inventory, except: [:created_at, :updated_at]
+    end
+
+    private 
+
+    def inventory_params
+        params.require(:inventory).permit(:user_id, :item_id, :quantity)
     end
 end

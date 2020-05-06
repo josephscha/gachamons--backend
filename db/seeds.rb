@@ -67,7 +67,11 @@ Item.create(name: "Tamago", price: 1000, description: "Summon a random monster!"
 Item.create(name: "Lady Egga", price: 50000, description: "Summon a random Epic and higher monster!", img_url: "./assets/mario-gif/lady_egga_egg.png")
 Item.create(name: "Pikapika Egg", price: 100000, description: "Summon a LEGENDARY Monster!", img_url: "./assets/mario-gif/pikapika_egg.png")
 
-Inventory.create(item: Item.first, user: User.first, quantity: 1)
+Inventory.create(item: Item.first, user: User.first, quantity: 10)
+Inventory.create(item: Item.second, user: User.first, quantity: 20)
+Inventory.create(item: Item.last, user: User.first, quantity: 30)
+
+
 Summon.create(monster: Monster.first, user: User.first)
 
 puts "finished seeding"
