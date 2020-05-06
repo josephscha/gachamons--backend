@@ -23,18 +23,40 @@ epic_mons = [3,6,9,18,25,26,31,34,38,45,59,65,68,76,94,106,107,112,113,122,123,1
 legendary_mons = [142,143,144,145,146,149,150,151]
 monsters_list = [rare_mons,epic_mons,legendary_mons]
 
-monsters_list.each do |array|
-  array.each do |i|
-    url = "https://pokeapi.co/api/v2/pokemon/#{i}/"
 
-    resp = RestClient.get(url)
-    json_resp = JSON.parse(resp) 
+rare_mons.each do |i|
+  url = "https://pokeapi.co/api/v2/pokemon/#{i}/"
 
-    name = json_resp["species"]["name"]
-    img_url = "./assets/ani-front/#{name}.gif"
-    Monster.create(name: name, level: 1, img_url: img_url)
-  end 
-end
+  resp = RestClient.get(url)
+  json_resp = JSON.parse(resp) 
+
+  name = json_resp["species"]["name"]
+  img_url = "./assets/ani-front/#{name}.gif"
+  Monster.create(name: name, img_url: img_url, rarity: 'normal')
+end 
+
+epic_mons.each do |i|
+  url = "https://pokeapi.co/api/v2/pokemon/#{i}/"
+
+  resp = RestClient.get(url)
+  json_resp = JSON.parse(resp) 
+
+  name = json_resp["species"]["name"]
+  img_url = "./assets/ani-front/#{name}.gif"
+  Monster.create(name: name, img_url: img_url, rarity: 'epic')
+end 
+
+legendary_mons.each do |i|
+  url = "https://pokeapi.co/api/v2/pokemon/#{i}/"
+
+  resp = RestClient.get(url)
+  json_resp = JSON.parse(resp) 
+
+  name = json_resp["species"]["name"]
+  img_url = "./assets/ani-front/#{name}.gif"
+  Monster.create(name: name, img_url: img_url, rarity: 'legendary')
+end 
+
 
 puts "Rare monsters : #{rare_mons.count}" #105 rare monsters ID: 1-105
 puts "Epic monsters : #{epic_mons.count}" #38 epic monsters ID: 106-143
@@ -45,7 +67,7 @@ Item.create(name: "Tamago", price: 1000, description: "Summon a random monster!"
 Item.create(name: "Lady Egga", price: 50000, description: "Summon a random Epic and higher monster!", img_url: "./assets/mario-gif/lady_egga_egg.png")
 Item.create(name: "Pikapika Egg", price: 100000, description: "Summon a LEGENDARY Monster!", img_url: "./assets/mario-gif/pikapika_egg.png")
 
-Inventory.create(item: Item.first, user: User.first)
+Inventory.create(item: Item.first, user: User.first, quantity: 1)
 Summon.create(monster: Monster.first, user: User.first)
 
 puts "finished seeding"
