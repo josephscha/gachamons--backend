@@ -24,6 +24,10 @@ class InventoriesController < ApplicationController
         render json: inventory, except: [:created_at, :updated_at]
     end
 
+    def destroy
+        inventory = Item.find(params[:id])
+        inventory.destroy
+    end
 
 
     private 
