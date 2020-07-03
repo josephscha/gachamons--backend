@@ -1,25 +1,15 @@
-# README
+# Gachamons Backend
+Browser based single player game inspired from the mobile game "Gacha" genre. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Motivation 
+Creation and implmentation of Single page application. Database backend for Gachamons.
 
-Things you may want to cover:
+# Techstack 
+* Ruby on Rails 
 
-* Ruby version
+# Features
+* Page routing done through DOM Manipulation on frontend
+* Routes set up through Rails
+* Database holds monster and user information / Persistance
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# gachamons--backend
+#
